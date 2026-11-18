@@ -1,0 +1,8 @@
+{
+  "5": {"image": "profile_lineart_pale_marks.png"},
+  "20": {"method": "edges", "detail": 0.5, "contrast_recovery": true},
+  "96": {"color": "#989898"},
+  "98": {"color": "#dacb9c"},
+  "121": {"mode": "region_sample", "region": "0.13,0.35,0.42,0.63", "color_mode": "original", "color_tolerance": 12},
+  "131": {"mode": "region_sample", "region": "0.59,0.35,0.87,0.63", "color_mode": "original", "color_tolerance": 12}
+}

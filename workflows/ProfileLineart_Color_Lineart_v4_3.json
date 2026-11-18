@@ -1,0 +1,1489 @@
+{
+  "id": "738dcfcd-42f2-5232-b250-7d03cdbbface",
+  "revision": 0,
+  "workflow_name": "ProfileLineart_Color_Lineart_v4_3",
+  "last_node_id": 136,
+  "last_link_id": 22,
+  "nodes": [
+    {
+      "id": 5,
+      "type": "LoadImage",
+      "pos": [
+        20,
+        40
+      ],
+      "size": [
+        310,
+        380
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            2
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "profile_lineart_practice.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "profile_lineart_practice.png",
+        "upload": "image"
+      },
+      "title": "上传二次元底图"
+    },
+    {
+      "id": 20,
+      "type": "AnimeLineartExtract",
+      "pos": [
+        365,
+        40
+      ],
+      "size": [
+        310,
+        177
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 1
+        },
+        {
+          "name": "method",
+          "type": "COMBO",
+          "widget": {
+            "name": "method"
+          },
+          "link": null
+        },
+        {
+          "name": "detail",
+          "type": "FLOAT",
+          "widget": {
+            "name": "detail"
+          },
+          "link": null
+        },
+        {
+          "name": "transparency",
+          "type": "MASK",
+          "link": 2
+        },
+        {
+          "name": "contrast_recovery",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "contrast_recovery"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "白线",
+          "type": "IMAGE",
+          "links": [
+            3,
+            4
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "彩色底图",
+          "type": "IMAGE",
+          "links": [
+            5,
+            8,
+            18
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "提线状态",
+          "type": "STRING",
+          "links": [
+            22
+          ],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "AnimeLineartExtract"
+      },
+      "widgets_values": [
+        "edges",
+        0.5,
+        true
+      ],
+      "widgets_values_named": {
+        "method": "edges",
+        "detail": 0.5,
+        "contrast_recovery": true
+      },
+      "title": "提取白线"
+    },
+    {
+      "id": 29,
+      "type": "PreviewImage",
+      "pos": [
+        365,
+        255
+      ],
+      "size": [
+        310,
+        335
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {},
+      "title": "白线预览"
+    },
+    {
+      "id": 90,
+      "type": "ColorToRGBInt",
+      "pos": [
+        740,
+        40
+      ],
+      "size": [
+        310,
+        70
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "color",
+          "type": "COLOR",
+          "widget": {
+            "name": "color"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "rgb_int",
+          "type": "INT",
+          "links": [
+            6
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "hex",
+          "type": "COLOR",
+          "links": [],
+          "slot_index": 1
+        },
+        {
+          "name": "alpha",
+          "type": "FLOAT",
+          "links": [],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ColorToRGBInt"
+      },
+      "widgets_values": [
+        "#a91c06"
+      ],
+      "widgets_values_named": {
+        "color": "#a91c06"
+      },
+      "title": "主线暗部色"
+    },
+    {
+      "id": 91,
+      "type": "ColorToRGBInt",
+      "pos": [
+        740,
+        150
+      ],
+      "size": [
+        310,
+        70
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "color",
+          "type": "COLOR",
+          "widget": {
+            "name": "color"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "rgb_int",
+          "type": "INT",
+          "links": [
+            7
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "hex",
+          "type": "COLOR",
+          "links": [],
+          "slot_index": 1
+        },
+        {
+          "name": "alpha",
+          "type": "FLOAT",
+          "links": [],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ColorToRGBInt"
+      },
+      "widgets_values": [
+        "#ffbd69"
+      ],
+      "widgets_values_named": {
+        "color": "#ffbd69"
+      },
+      "title": "主线亮部色"
+    },
+    {
+      "id": 96,
+      "type": "ColorToRGBInt",
+      "pos": [
+        20,
+        730
+      ],
+      "size": [
+        310,
+        70
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "color",
+          "type": "COLOR",
+          "widget": {
+            "name": "color"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "rgb_int",
+          "type": "INT",
+          "links": [
+            9
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "hex",
+          "type": "COLOR",
+          "links": [],
+          "slot_index": 1
+        },
+        {
+          "name": "alpha",
+          "type": "FLOAT",
+          "links": [],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ColorToRGBInt"
+      },
+      "widgets_values": [
+        "#989898"
+      ],
+      "widgets_values_named": {
+        "color": "#989898"
+      },
+      "title": "A 底图取样色"
+    },
+    {
+      "id": 120,
+      "type": "AnimeTonalLineart",
+      "pos": [
+        1085,
+        40
+      ],
+      "size": [
+        390,
+        540
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "lines",
+          "type": "IMAGE",
+          "link": 4
+        },
+        {
+          "name": "source",
+          "type": "IMAGE",
+          "link": 5
+        },
+        {
+          "name": "shadow_color",
+          "type": "INT",
+          "widget": {
+            "name": "shadow_color"
+          },
+          "link": 6
+        },
+        {
+          "name": "highlight_color",
+          "type": "INT",
+          "widget": {
+            "name": "highlight_color"
+          },
+          "link": 7
+        },
+        {
+          "name": "shadow_level",
+          "type": "FLOAT",
+          "widget": {
+            "name": "shadow_level"
+          },
+          "link": null
+        },
+        {
+          "name": "highlight_level",
+          "type": "FLOAT",
+          "widget": {
+            "name": "highlight_level"
+          },
+          "link": null
+        },
+        {
+          "name": "light_angle",
+          "type": "FLOAT",
+          "widget": {
+            "name": "light_angle"
+          },
+          "link": null
+        },
+        {
+          "name": "tone_contrast",
+          "type": "FLOAT",
+          "widget": {
+            "name": "tone_contrast"
+          },
+          "link": null
+        },
+        {
+          "name": "source_shading",
+          "type": "FLOAT",
+          "widget": {
+            "name": "source_shading"
+          },
+          "link": null
+        },
+        {
+          "name": "line_gamma",
+          "type": "FLOAT",
+          "widget": {
+            "name": "line_gamma"
+          },
+          "link": null
+        },
+        {
+          "name": "line_gain",
+          "type": "FLOAT",
+          "widget": {
+            "name": "line_gain"
+          },
+          "link": null
+        },
+        {
+          "name": "line_width",
+          "type": "INT",
+          "widget": {
+            "name": "line_width"
+          },
+          "link": null
+        },
+        {
+          "name": "line_texture",
+          "type": "FLOAT",
+          "widget": {
+            "name": "line_texture"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "colored_lines",
+          "type": "IMAGE",
+          "links": [
+            11
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "tone_field",
+          "type": "IMAGE",
+          "links": [],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "AnimeTonalLineart"
+      },
+      "widgets_values": [
+        555904,
+        10289136,
+        0.55,
+        1.1,
+        -35.0,
+        1.6,
+        0.25,
+        0.72,
+        1.1,
+        0,
+        0.0
+      ],
+      "widgets_values_named": {
+        "shadow_color": 555904,
+        "highlight_color": 10289136,
+        "shadow_level": 0.55,
+        "highlight_level": 1.1,
+        "light_angle": -35.0,
+        "tone_contrast": 1.6,
+        "source_shading": 0.25,
+        "line_gamma": 0.72,
+        "line_gain": 1.1,
+        "line_width": 0,
+        "line_texture": 0.0
+      },
+      "title": "线色与明暗"
+    },
+    {
+      "id": 121,
+      "type": "AnimeColoredMarkLineart",
+      "pos": [
+        365,
+        730
+      ],
+      "size": [
+        375,
+        420
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "IMAGE",
+          "link": 8
+        },
+        {
+          "name": "mode",
+          "type": "COMBO",
+          "widget": {
+            "name": "mode"
+          },
+          "link": null
+        },
+        {
+          "name": "target_color",
+          "type": "INT",
+          "widget": {
+            "name": "target_color"
+          },
+          "link": 9
+        },
+        {
+          "name": "hue_tolerance",
+          "type": "FLOAT",
+          "widget": {
+            "name": "hue_tolerance"
+          },
+          "link": null
+        },
+        {
+          "name": "region",
+          "type": "STRING",
+          "widget": {
+            "name": "region"
+          },
+          "link": null
+        },
+        {
+          "name": "skin_contact",
+          "type": "FLOAT",
+          "widget": {
+            "name": "skin_contact"
+          },
+          "link": null
+        },
+        {
+          "name": "mark_strength",
+          "type": "FLOAT",
+          "widget": {
+            "name": "mark_strength"
+          },
+          "link": null
+        },
+        {
+          "name": "dark_floor",
+          "type": "FLOAT",
+          "widget": {
+            "name": "dark_floor"
+          },
+          "link": null
+        },
+        {
+          "name": "outline_width",
+          "type": "FLOAT",
+          "widget": {
+            "name": "outline_width"
+          },
+          "link": null
+        },
+        {
+          "name": "color_mode",
+          "type": "COMBO",
+          "widget": {
+            "name": "color_mode"
+          },
+          "link": null
+        },
+        {
+          "name": "ink_color",
+          "type": "INT",
+          "widget": {
+            "name": "ink_color"
+          },
+          "link": 10
+        },
+        {
+          "name": "color_tolerance",
+          "type": "FLOAT",
+          "widget": {
+            "name": "color_tolerance"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "mark_lines",
+          "type": "IMAGE",
+          "links": [
+            12,
+            16
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "mark_region_mask",
+          "type": "MASK",
+          "links": [
+            13
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "AnimeColoredMarkLineart"
+      },
+      "widgets_values": [
+        "off",
+        15663166,
+        20.0,
+        "0,0,1,1",
+        0.65,
+        1.0,
+        0.22,
+        1.5,
+        "original",
+        16763755,
+        12.0
+      ],
+      "widgets_values_named": {
+        "mode": "off",
+        "target_color": 15663166,
+        "hue_tolerance": 20.0,
+        "region": "0,0,1,1",
+        "skin_contact": 0.65,
+        "mark_strength": 1.0,
+        "dark_floor": 0.22,
+        "outline_width": 1.5,
+        "color_mode": "original",
+        "ink_color": 16763755,
+        "color_tolerance": 12.0
+      },
+      "title": "A · 记号取色与轮廓"
+    },
+    {
+      "id": 122,
+      "type": "AnimeLineartGlow",
+      "pos": [
+        1510,
+        40
+      ],
+      "size": [
+        325,
+        205
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "colored_lines",
+          "type": "IMAGE",
+          "link": 11
+        },
+        {
+          "name": "marks",
+          "type": "IMAGE",
+          "link": 12
+        },
+        {
+          "name": "mark_mask",
+          "type": "MASK",
+          "link": 13
+        },
+        {
+          "name": "glow_strength",
+          "type": "FLOAT",
+          "widget": {
+            "name": "glow_strength"
+          },
+          "link": null
+        },
+        {
+          "name": "glow_radius",
+          "type": "FLOAT",
+          "widget": {
+            "name": "glow_radius"
+          },
+          "link": null
+        },
+        {
+          "name": "second_marks",
+          "type": "IMAGE",
+          "link": 14
+        },
+        {
+          "name": "second_mark_mask",
+          "type": "MASK",
+          "link": 15
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            17
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "AnimeLineartGlow"
+      },
+      "widgets_values": [
+        0.45,
+        1.6
+      ],
+      "widgets_values_named": {
+        "glow_strength": 0.45,
+        "glow_radius": 1.6
+      },
+      "title": "合成与发光"
+    },
+    {
+      "id": 125,
+      "type": "PreviewImage",
+      "pos": [
+        770,
+        730
+      ],
+      "size": [
+        275,
+        365
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 16
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {},
+      "title": "A 轮廓预览"
+    },
+    {
+      "id": 28,
+      "type": "SaveImage",
+      "pos": [
+        1865,
+        40
+      ],
+      "size": [
+        325,
+        455
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 17
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "profile_lineart/color_lineart_v4_3/final"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "profile_lineart/color_lineart_v4_3/final"
+      },
+      "title": "保存最终线稿"
+    },
+    {
+      "id": 97,
+      "type": "ColorToRGBInt",
+      "pos": [
+        20,
+        845
+      ],
+      "size": [
+        310,
+        70
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "color",
+          "type": "COLOR",
+          "widget": {
+            "name": "color"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "rgb_int",
+          "type": "INT",
+          "links": [
+            10
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "hex",
+          "type": "COLOR",
+          "links": [],
+          "slot_index": 1
+        },
+        {
+          "name": "alpha",
+          "type": "FLOAT",
+          "links": [],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ColorToRGBInt"
+      },
+      "widgets_values": [
+        "#ffcb6b"
+      ],
+      "widgets_values_named": {
+        "color": "#ffcb6b"
+      },
+      "title": "A 自定义轮廓色"
+    },
+    {
+      "id": 98,
+      "type": "ColorToRGBInt",
+      "pos": [
+        1100,
+        730
+      ],
+      "size": [
+        310,
+        70
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "color",
+          "type": "COLOR",
+          "widget": {
+            "name": "color"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "rgb_int",
+          "type": "INT",
+          "links": [
+            19
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "hex",
+          "type": "COLOR",
+          "links": [],
+          "slot_index": 1
+        },
+        {
+          "name": "alpha",
+          "type": "FLOAT",
+          "links": [],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ColorToRGBInt"
+      },
+      "widgets_values": [
+        "#dacb9c"
+      ],
+      "widgets_values_named": {
+        "color": "#dacb9c"
+      },
+      "title": "B 底图取样色"
+    },
+    {
+      "id": 99,
+      "type": "ColorToRGBInt",
+      "pos": [
+        1100,
+        845
+      ],
+      "size": [
+        310,
+        70
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "color",
+          "type": "COLOR",
+          "widget": {
+            "name": "color"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "rgb_int",
+          "type": "INT",
+          "links": [
+            20
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "hex",
+          "type": "COLOR",
+          "links": [],
+          "slot_index": 1
+        },
+        {
+          "name": "alpha",
+          "type": "FLOAT",
+          "links": [],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ColorToRGBInt"
+      },
+      "widgets_values": [
+        "#be9aff"
+      ],
+      "widgets_values_named": {
+        "color": "#be9aff"
+      },
+      "title": "B 自定义轮廓色"
+    },
+    {
+      "id": 131,
+      "type": "AnimeColoredMarkLineart",
+      "pos": [
+        1445,
+        730
+      ],
+      "size": [
+        375,
+        420
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "IMAGE",
+          "link": 18
+        },
+        {
+          "name": "mode",
+          "type": "COMBO",
+          "widget": {
+            "name": "mode"
+          },
+          "link": null
+        },
+        {
+          "name": "target_color",
+          "type": "INT",
+          "widget": {
+            "name": "target_color"
+          },
+          "link": 19
+        },
+        {
+          "name": "hue_tolerance",
+          "type": "FLOAT",
+          "widget": {
+            "name": "hue_tolerance"
+          },
+          "link": null
+        },
+        {
+          "name": "region",
+          "type": "STRING",
+          "widget": {
+            "name": "region"
+          },
+          "link": null
+        },
+        {
+          "name": "skin_contact",
+          "type": "FLOAT",
+          "widget": {
+            "name": "skin_contact"
+          },
+          "link": null
+        },
+        {
+          "name": "mark_strength",
+          "type": "FLOAT",
+          "widget": {
+            "name": "mark_strength"
+          },
+          "link": null
+        },
+        {
+          "name": "dark_floor",
+          "type": "FLOAT",
+          "widget": {
+            "name": "dark_floor"
+          },
+          "link": null
+        },
+        {
+          "name": "outline_width",
+          "type": "FLOAT",
+          "widget": {
+            "name": "outline_width"
+          },
+          "link": null
+        },
+        {
+          "name": "color_mode",
+          "type": "COMBO",
+          "widget": {
+            "name": "color_mode"
+          },
+          "link": null
+        },
+        {
+          "name": "ink_color",
+          "type": "INT",
+          "widget": {
+            "name": "ink_color"
+          },
+          "link": 20
+        },
+        {
+          "name": "color_tolerance",
+          "type": "FLOAT",
+          "widget": {
+            "name": "color_tolerance"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "mark_lines",
+          "type": "IMAGE",
+          "links": [
+            14,
+            21
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "mark_region_mask",
+          "type": "MASK",
+          "links": [
+            15
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "AnimeColoredMarkLineart"
+      },
+      "widgets_values": [
+        "off",
+        15663166,
+        20.0,
+        "0,0,1,1",
+        0.65,
+        1.0,
+        0.22,
+        1.5,
+        "original",
+        16763755,
+        12.0
+      ],
+      "widgets_values_named": {
+        "mode": "off",
+        "target_color": 15663166,
+        "hue_tolerance": 20.0,
+        "region": "0,0,1,1",
+        "skin_contact": 0.65,
+        "mark_strength": 1.0,
+        "dark_floor": 0.22,
+        "outline_width": 1.5,
+        "color_mode": "original",
+        "ink_color": 16763755,
+        "color_tolerance": 12.0
+      },
+      "title": "B · 记号取色与轮廓"
+    },
+    {
+      "id": 135,
+      "type": "PreviewImage",
+      "pos": [
+        1850,
+        730
+      ],
+      "size": [
+        275,
+        365
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 21
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {},
+      "title": "B 轮廓预览"
+    },
+    {
+      "id": 136,
+      "type": "PreviewAny",
+      "pos": [
+        20,
+        470
+      ],
+      "size": [
+        310,
+        105
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 22
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewAny"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {},
+      "title": "提线状态"
+    }
+  ],
+  "links": [
+    [
+      1,
+      5,
+      0,
+      20,
+      0,
+      "IMAGE"
+    ],
+    [
+      2,
+      5,
+      1,
+      20,
+      3,
+      "MASK"
+    ],
+    [
+      3,
+      20,
+      0,
+      29,
+      0,
+      "IMAGE"
+    ],
+    [
+      4,
+      20,
+      0,
+      120,
+      0,
+      "IMAGE"
+    ],
+    [
+      5,
+      20,
+      1,
+      120,
+      1,
+      "IMAGE"
+    ],
+    [
+      6,
+      90,
+      0,
+      120,
+      2,
+      "INT"
+    ],
+    [
+      7,
+      91,
+      0,
+      120,
+      3,
+      "INT"
+    ],
+    [
+      8,
+      20,
+      1,
+      121,
+      0,
+      "IMAGE"
+    ],
+    [
+      9,
+      96,
+      0,
+      121,
+      2,
+      "INT"
+    ],
+    [
+      10,
+      97,
+      0,
+      121,
+      10,
+      "INT"
+    ],
+    [
+      11,
+      120,
+      0,
+      122,
+      0,
+      "IMAGE"
+    ],
+    [
+      12,
+      121,
+      0,
+      122,
+      1,
+      "IMAGE"
+    ],
+    [
+      13,
+      121,
+      1,
+      122,
+      2,
+      "MASK"
+    ],
+    [
+      14,
+      131,
+      0,
+      122,
+      5,
+      "IMAGE"
+    ],
+    [
+      15,
+      131,
+      1,
+      122,
+      6,
+      "MASK"
+    ],
+    [
+      16,
+      121,
+      0,
+      125,
+      0,
+      "IMAGE"
+    ],
+    [
+      17,
+      122,
+      0,
+      28,
+      0,
+      "IMAGE"
+    ],
+    [
+      18,
+      20,
+      1,
+      131,
+      0,
+      "IMAGE"
+    ],
+    [
+      19,
+      98,
+      0,
+      131,
+      2,
+      "INT"
+    ],
+    [
+      20,
+      99,
+      0,
+      131,
+      10,
+      "INT"
+    ],
+    [
+      21,
+      131,
+      0,
+      135,
+      0,
+      "IMAGE"
+    ],
+    [
+      22,
+      20,
+      2,
+      136,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "图片与主线",
+      "bounding": [
+        0,
+        -20,
+        2220,
+        647
+      ],
+      "color": "#236271",
+      "font_size": 25,
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "可选 · 记号 A",
+      "bounding": [
+        0,
+        660,
+        1065,
+        512
+      ],
+      "color": "#6e5131",
+      "font_size": 25,
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "可选 · 记号 B",
+      "bounding": [
+        1080,
+        660,
+        1065,
+        512
+      ],
+      "color": "#624a79",
+      "font_size": 25,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.49,
+      "offset": [
+        100,
+        100
+      ]
+    }
+  },
+  "version": 0.4
+}

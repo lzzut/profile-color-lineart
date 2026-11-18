@@ -1,0 +1,215 @@
+{
+  "5": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "profile_lineart_practice.png"
+    }
+  },
+  "20": {
+    "class_type": "AnimeLineartExtract",
+    "inputs": {
+      "image": [
+        "5",
+        0
+      ],
+      "transparency": [
+        "5",
+        1
+      ],
+      "method": "edges",
+      "detail": 0.5,
+      "contrast_recovery": true
+    }
+  },
+  "29": {
+    "class_type": "PreviewImage",
+    "inputs": {
+      "images": [
+        "20",
+        0
+      ]
+    }
+  },
+  "90": {
+    "class_type": "ColorToRGBInt",
+    "inputs": {
+      "color": "#a91c06"
+    }
+  },
+  "91": {
+    "class_type": "ColorToRGBInt",
+    "inputs": {
+      "color": "#ffbd69"
+    }
+  },
+  "96": {
+    "class_type": "ColorToRGBInt",
+    "inputs": {
+      "color": "#989898"
+    }
+  },
+  "120": {
+    "class_type": "AnimeTonalLineart",
+    "inputs": {
+      "lines": [
+        "20",
+        0
+      ],
+      "source": [
+        "20",
+        1
+      ],
+      "shadow_color": [
+        "90",
+        0
+      ],
+      "highlight_color": [
+        "91",
+        0
+      ],
+      "shadow_level": 0.55,
+      "highlight_level": 1.1,
+      "light_angle": -35.0,
+      "tone_contrast": 1.6,
+      "source_shading": 0.25,
+      "line_gamma": 0.72,
+      "line_gain": 1.1,
+      "line_width": 0,
+      "line_texture": 0.0
+    }
+  },
+  "121": {
+    "class_type": "AnimeColoredMarkLineart",
+    "inputs": {
+      "source": [
+        "20",
+        1
+      ],
+      "mode": "off",
+      "target_color": [
+        "96",
+        0
+      ],
+      "hue_tolerance": 20.0,
+      "region": "0,0,1,1",
+      "skin_contact": 0.65,
+      "mark_strength": 1.0,
+      "dark_floor": 0.22,
+      "outline_width": 1.5,
+      "color_mode": "original",
+      "ink_color": [
+        "97",
+        0
+      ],
+      "color_tolerance": 12.0
+    }
+  },
+  "122": {
+    "class_type": "AnimeLineartGlow",
+    "inputs": {
+      "colored_lines": [
+        "120",
+        0
+      ],
+      "marks": [
+        "121",
+        0
+      ],
+      "mark_mask": [
+        "121",
+        1
+      ],
+      "glow_strength": 0.45,
+      "glow_radius": 1.6,
+      "second_marks": [
+        "131",
+        0
+      ],
+      "second_mark_mask": [
+        "131",
+        1
+      ]
+    }
+  },
+  "125": {
+    "class_type": "PreviewImage",
+    "inputs": {
+      "images": [
+        "121",
+        0
+      ]
+    }
+  },
+  "28": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "122",
+        0
+      ],
+      "filename_prefix": "profile_lineart/color_lineart_v4_3/final"
+    }
+  },
+  "97": {
+    "class_type": "ColorToRGBInt",
+    "inputs": {
+      "color": "#ffcb6b"
+    }
+  },
+  "98": {
+    "class_type": "ColorToRGBInt",
+    "inputs": {
+      "color": "#dacb9c"
+    }
+  },
+  "99": {
+    "class_type": "ColorToRGBInt",
+    "inputs": {
+      "color": "#be9aff"
+    }
+  },
+  "131": {
+    "class_type": "AnimeColoredMarkLineart",
+    "inputs": {
+      "source": [
+        "20",
+        1
+      ],
+      "mode": "off",
+      "target_color": [
+        "98",
+        0
+      ],
+      "hue_tolerance": 20.0,
+      "region": "0,0,1,1",
+      "skin_contact": 0.65,
+      "mark_strength": 1.0,
+      "dark_floor": 0.22,
+      "outline_width": 1.5,
+      "color_mode": "original",
+      "ink_color": [
+        "99",
+        0
+      ],
+      "color_tolerance": 12.0
+    }
+  },
+  "135": {
+    "class_type": "PreviewImage",
+    "inputs": {
+      "images": [
+        "131",
+        0
+      ]
+    }
+  },
+  "136": {
+    "class_type": "PreviewAny",
+    "inputs": {
+      "source": [
+        "20",
+        2
+      ]
+    }
+  }
+}
