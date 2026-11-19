@@ -7,7 +7,7 @@ from prepare_image_workflow import NODE_FILES, PALE_SAMPLE, PLUGIN, ROOT, SAMPLE
 
 
 PUBLIC_FILES = (
-    ".gitignore", "README.md", "GUIDE_COLOR_LINEART.md", "AI_INTEGRATION.md", "requirements.txt",
+    ".gitignore", "README.md", "LICENSE", "GUIDE_COLOR_LINEART.md", "AI_INTEGRATION.md", "requirements.txt",
     "prepare_image_workflow.py", "lineart_api.py", "build_release.py",
     f"workflows/{WORKFLOW_NAME}.json", f"workflows/{WORKFLOW_NAME}.api.json",
     *(PLUGIN / name for name in NODE_FILES),
